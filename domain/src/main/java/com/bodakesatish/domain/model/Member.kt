@@ -2,7 +2,7 @@ package com.bodakesatish.domain.model
 
 data class Member(
     val id: Int,
-    val name: String,
-    val email: String,
+    val firstName: String,
+    val lastName: String,
     val mobile: String
 )

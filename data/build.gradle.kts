@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.bodakesatish.domain"
+    namespace = "com.bodakesatish.data"
     compileSdk = 35
 
     defaultConfig {
@@ -36,6 +36,14 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.androidx.core.ktx)
+
+    // Architecture Components
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation(project(":domain"))
+    ksp(libs.room.compiler)
 
     // Hilt
     implementation(libs.hilt.android.core)

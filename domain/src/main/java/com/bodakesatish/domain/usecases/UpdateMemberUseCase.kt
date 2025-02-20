@@ -9,7 +9,7 @@ import javax.inject.Singleton
 class UpdateMemberUseCase @Inject constructor(
     private val memberRepository: MemberRepository
 ) {
-    operator fun invoke(member: Member) {
+    suspend operator fun invoke(member: Member) {
         memberRepository.updateMember(member)
     }
 }

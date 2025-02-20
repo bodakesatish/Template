@@ -9,7 +9,7 @@ import javax.inject.Singleton
 class DeleteMemberUseCase @Inject constructor(
     private val memberRepository: MemberRepository
 ) {
-    operator fun invoke(member: Member) {
+    suspend operator fun invoke(member: Member) {
         memberRepository.addMember(member)
     }
 }
