@@ -37,19 +37,40 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     implementation(libs.androidx.core.ktx)
 
     // Architecture Components
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    implementation(project(":domain"))
     ksp(libs.room.compiler)
 
     // Hilt
     implementation(libs.hilt.android.core)
     kapt(libs.hilt.compiler)
 
+
+
+    // JUnit for Unit Testing
+
+    // Mocking dependencies
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.mockk)
+
+    // Coroutines testing
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    // AndroidX Test - Instrumentation Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Hilt Testing
+    androidTestImplementation(libs.androidx.hilt.testing)
+    kaptAndroidTest(libs.androidx.hilt.compiler)
+
+    // Room Testing
+    testImplementation(libs.room.testing)
 }

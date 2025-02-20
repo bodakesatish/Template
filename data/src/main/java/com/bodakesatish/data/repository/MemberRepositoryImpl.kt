@@ -18,13 +18,14 @@ class MemberRepositoryImpl @Inject constructor(
         return memberDao.getAllMember()
             .map { members ->
                 members.map { member ->
-                member.mapTo()
+                    member.mapTo()
+                }
             }
-         }
     }
 
-    override suspend fun addMember(member: Member) {
-        memberDao.insertMember(member.mapFrom())
+    override suspend fun addMember(member: Member): Boolean {
+        val id = memberDao.insertMember(member.mapFrom())
+        return id > 0
     }
 
     override suspend fun updateMember(member: Member) {
